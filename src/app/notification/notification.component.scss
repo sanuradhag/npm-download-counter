@@ -1,0 +1,22 @@
+:host /deep/ .simple-notification-wrapper {
+    z-index: 105100;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    .simple-notification {
+        margin-bottom: 0;
+        &.success{
+          background: #4caf50;
+        }
+        &.error{
+          background: #d32f2f;
+        }
+    }
+    &.right {
+        right: 0;
+    }
+    &.bottom {
+        bottom: 0;
+    }
+    width:100%;
+}

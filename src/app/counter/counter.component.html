@@ -1,0 +1,25 @@
+<div>
+  <h1>{{packageName}} download count</h1>
+
+  <div *ngIf="showForm">
+    <form [formGroup]="packageForm" novalidate (ngSubmit)="onSubmit()">
+      <div>
+        <label>Enter package name</label>
+        <input type="text" [placeholder]="'angular-switchable-grid'" formControlName="packageName"
+               [(ngModel)]="packageName">
+      </div>
+
+      <button type="submit" [disabled]="!packageForm.valid">Get download details</button>
+    </form>
+
+  </div>
+
+
+  <div>
+    <h2>{{lastDay}} downloads in the last day</h2><br>
+    <h2>{{lastWeek}} downloads in the last week</h2><br>
+    <h2>{{lastMonth}} downloads in the last month</h2><br>
+  </div>
+
+  <a (click)="showForm = !showForm">Change package</a>
+</div>

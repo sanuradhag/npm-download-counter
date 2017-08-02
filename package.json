@@ -21,9 +21,14 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "angular2-busy": "^2.0.4",
+    "angular4-notifications": "0.0.2",
     "core-js": "^2.4.1",
+    "ngx-store": "^1.1.2",
     "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
+    "zone.js": "^0.8.4",
+    "bootstrap": "^3.3.6",
+    "compass-mixins": "^0.12.10"
   },
   "devDependencies": {
     "@angular/cli": "1.2.0",
