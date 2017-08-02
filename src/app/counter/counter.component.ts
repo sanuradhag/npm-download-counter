@@ -14,6 +14,7 @@ export class CounterComponent {
   public packageForm: FormGroup;
   @LocalStorage() public packageName: string = 'angular-switchable-grid';
   public showForm: boolean;
+  public noDownloads: boolean;
   public lastDay: number;
   public lastWeek: number;
   public lastMonth: number;
@@ -24,6 +25,7 @@ export class CounterComponent {
     this.lastWeek = 0;
     this.lastMonth = 0;
     this.showForm = false;
+    this.noDownloads = false;
 
     if (this.packageName) {
       this.getDownloads();
@@ -35,18 +37,27 @@ export class CounterComponent {
   private getLastDayDownloadCounts(): void {
     this.counterService.getDownloads(this.packageName, 'last-day').subscribe((response: IDownloadCount) => {
       this.lastDay = response.downloads;
+      this.noDownloads = false;
+    }, (error) => {
+      this.noDownloads = true;
     });
   }
 
   private getLastWeekDownloadCounts(): void {
     this.counterService.getDownloads(this.packageName, 'last-week').subscribe((response: IDownloadCount) => {
       this.lastWeek = response.downloads;
+      this.noDownloads = false;
+    }, (error) => {
+      this.noDownloads = true;
     });
   }
 
   private getLastMonthDownloadCounts(): void {
     this.counterService.getDownloads(this.packageName, 'last-month').subscribe((response: IDownloadCount) => {
       this.lastMonth = response.downloads;
+      this.noDownloads = false;
+    }, (error) => {
+      this.noDownloads = true;
     });
   }
 

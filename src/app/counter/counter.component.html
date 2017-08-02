@@ -1,5 +1,9 @@
 <div>
-  <h1>{{packageName}} download count</h1>
+
+  <div *ngIf="!noDownloads">
+    <h1>{{packageName}} download count</h1>
+  </div>
+  <a (click)="showForm = !showForm">Change package</a>
 
   <div *ngIf="showForm">
     <form [formGroup]="packageForm" novalidate (ngSubmit)="onSubmit()">
@@ -11,15 +15,19 @@
 
       <button type="submit" [disabled]="!packageForm.valid">Get download details</button>
     </form>
-
   </div>
 
 
   <div>
-    <h2>{{lastDay}} downloads in the last day</h2><br>
-    <h2>{{lastWeek}} downloads in the last week</h2><br>
-    <h2>{{lastMonth}} downloads in the last month</h2><br>
+    <div *ngIf="!noDownloads">
+      <h2>{{lastDay}} downloads in the last day</h2><br>
+      <h2>{{lastWeek}} downloads in the last week</h2><br>
+      <h2>{{lastMonth}} downloads in the last month</h2><br>
+    </div>
+
+    <div *ngIf="noDownloads">
+      <h2>No package found for {{packageName}}</h2>
+    </div>
   </div>
 
-  <a (click)="showForm = !showForm">Change package</a>
 </div>
