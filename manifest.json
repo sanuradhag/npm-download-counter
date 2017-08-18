@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
-    "name": "Working Hours Tracker",
-    "description": "Working Hours Tracker",
+    "name": "NPM package download counter",
+    "description": "NPM package download counte",
     "version": "1.0",
     "browser_action": {
         "default_icon": "npm.png",
