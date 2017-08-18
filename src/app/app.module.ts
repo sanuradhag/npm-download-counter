@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
 import { CounterModule } from './counter/conter.module';
 import { NotificationComponent } from './notification/notification.component';
 import { SimpleNotificationsModule } from 'angular4-notifications';
-import { AppRoutes } from './app.routes';
 import { CoreModule } from './core/core.module';
+import { AppRoutes } from './app.routes';
 
 @NgModule({
   declarations: [

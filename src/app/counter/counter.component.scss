@@ -1,0 +1,20 @@
+$bold-font: open_sanssemibold;
+.container {
+  .downloads {
+    position: absolute;
+  }
+  .row {
+    .count {
+      color: #666666;
+      font-family: $bold-font;
+      font-size: 40px;
+      display: inline-block;
+    }
+    .download-text {
+      color: #8D8D8D;
+      font-family: $bold-font;
+      font-size: 40px;
+      display: inline-block;
+    }
+  }
+}

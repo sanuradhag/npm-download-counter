@@ -13,17 +13,21 @@ export class CounterComponent {
 
   public packageForm: FormGroup;
   @LocalStorage() public packageName: string = 'angular-switchable-grid';
+  @LocalStorage() public startDate: string = '2017-01-01';
+  @LocalStorage() public endDate: string = '2017-12-30';
   public showForm: boolean;
   public noDownloads: boolean;
   public lastDay: number;
   public lastWeek: number;
   public lastMonth: number;
+  public allDownloads: number;
 
   constructor(private counterService: CounterService, private fb: FormBuilder) {
     this.createForm();
     this.lastDay = 0;
     this.lastWeek = 0;
     this.lastMonth = 0;
+    this.allDownloads = 0;
     this.showForm = false;
     this.noDownloads = false;
 
@@ -63,7 +67,9 @@ export class CounterComponent {
 
   private createForm(): void {
     this.packageForm = this.fb.group({
-      packageName: [this.packageName, [Validators.required]]
+      packageName: [this.packageName, [Validators.required]],
+      startDate: [this.startDate],
+      endDate: [this.endDate]
     });
   }
 
@@ -71,6 +77,16 @@ export class CounterComponent {
     this.getLastDayDownloadCounts();
     this.getLastWeekDownloadCounts();
     this.getLastMonthDownloadCounts();
+    this.getAllDowloads();
+  }
+
+  private getAllDowloads(): void {
+    this.counterService.getDownloads(this.packageName, `${this.startDate}:${this.endDate}`).subscribe((response: IDownloadCount) => {
+      this.allDownloads = response.downloads;
+      this.noDownloads = false;
+    }, (error) => {
+      this.noDownloads = true;
+    });
   }
 
   private onSubmit(): void {
