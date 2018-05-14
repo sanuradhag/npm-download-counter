@@ -1,17 +1,17 @@
 {
-    "manifest_version": 2,
-    "name": "NPM package download counter",
-    "description": "NPM package download counte",
-    "version": "1.0",
-    "browser_action": {
-        "default_icon": "npm.png",
-        "default_popup": "index.html"
-    },
-    "permissions": [],
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
-    "web_accessible_resources": [
-        "assets/css/*",
-        "assets/js/*",
-        "assets/fonts/*"
-    ]
+  "manifest_version": 2,
+  "name": "NPM package download counter",
+  "description": "NPM package download counte",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "npm.png",
+    "default_popup": "index.html"
+  },
+  "permissions": [],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "web_accessible_resources": [
+    "assets/css/*",
+    "assets/js/*",
+    "assets/fonts/*"
+  ]
 }
