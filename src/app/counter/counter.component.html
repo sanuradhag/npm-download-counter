@@ -1,29 +1,31 @@
 <div class="container">
 
   <div class="row text-center " *ngIf="!noDownloads">
-    <h1>{{packageName | uppercase}}</h1>
+    <div class="package-name">
+      <a (click)="onPackageClick(packageName)">{{packageName | uppercase}}</a>
+    </div>
   </div>
 
   <div class="downloads">
     <div *ngIf="!noDownloads">
       <div class="row count-container">
         <span class="count">{{lastDay}}</span>
-        <span class="download-text">downloads in the last day</span>
+        <span class="download-text">Downloads in the last day</span>
       </div>
 
       <div class="row count-container">
         <span class="count">{{lastWeek}}</span>
-        <span class="download-text">downloads in the last week</span>
+        <span class="download-text">Downloads in the last week</span>
       </div>
 
       <div class="row count-container">
         <span class="count">{{lastMonth}}</span>
-        <span class="download-text">downloads in the last month</span>
+        <span class="download-text">Downloads in the last month</span>
       </div>
 
       <div class="row count-container">
         <span class="count">{{allDownloads}}</span>
-        <span class="download-text">downloads between {{startDate}} and {{endDate}}</span>
+        <span class="download-text">Downloads between {{startDate}} and {{endDate}}</span>
       </div>
     </div>
 
@@ -39,25 +41,26 @@
       <form [formGroup]="packageForm" novalidate (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label>Enter package name</label>
-          <input class="form-control package-input" type="text" [placeholder]="'angular-switchable-grid'"
+          <input class="form-control package-input" type="text" [placeholder]="'Your package name'"
                  formControlName="packageName"
                  [(ngModel)]="packageName">
         </div>
 
         <div class="form-group">
           <label>Enter start date</label>
-          <input class="form-control package-input" type="text" [placeholder]="'start date'"
+          <input class="form-control package-input" type="text" [placeholder]="'Start date'"
                  formControlName="startDate"
                  [(ngModel)]="startDate">
         </div>
         <div class="form-group">
           <label>Enter end date</label>
-          <input class="form-control package-input" type="text" [placeholder]="'end date'"
+          <input class="form-control package-input" type="text" [placeholder]="'End date'"
                  formControlName="endDate"
                  [(ngModel)]="endDate">
         </div>
 
-        <button class="btn btn-primary submit-btn" type="submit" [disabled]="!packageForm.valid">Get download details</button>
+        <button class="btn btn-primary submit-btn" type="submit" [disabled]="!packageForm.valid">Get download details
+        </button>
       </form>
     </div>
   </div>

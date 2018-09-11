@@ -1,13 +1,27 @@
 $bold-font: open_sanssemibold;
 
-@keyframes colorchange
-{
-  0%   {border:3px solid rgba(178, 77, 62, 1);}
-  50%   {border:3px solid #ff4143;}
-  100% {border:3px solid rgba(178, 77, 62, 1);}
+@keyframes colorchange {
+  0% {
+    border: 3px solid rgb(3, 247, 3);
+  }
+  50% {
+    border: 3px solid #ff0012;
+  }
+  100% {
+    border: 3px solid rgb(3, 247, 3);
+  }
 }
 
 .container {
+  background-color: lightgoldenrodyellow;
+
+  .package-name {
+    a {
+      color: #df0020;
+      font-family: $bold-font;
+      font-size: 35px;
+    }
+  }
 
   .downloads {
     .count-container {
@@ -21,11 +35,11 @@ $bold-font: open_sanssemibold;
         border: solid;
         border-radius: 15px;
         animation: colorchange 3s;
-        animation-iteration-count:infinite;
+        animation-iteration-count: infinite;
       }
 
       .download-text {
-        color: #8D8D8D;
+        color: #f90012;
         font-family: $bold-font;
         font-size: 15px;
         display: flex;
@@ -35,6 +49,14 @@ $bold-font: open_sanssemibold;
   }
 
   .package-changer {
+    a {
+      color: #df0020;
+    }
+
+    label {
+      color: #df0020;
+    }
+
     display: flex;
     justify-content: center;
     flex-direction: column;

@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { IDownloadCount } from './shared/counter.models';
-import { CounterService } from './shared/counter.service';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { LocalStorage } from 'ngx-store';
+import {Component} from '@angular/core';
+import {IDownloadCount} from './shared/counter.models';
+import {CounterService} from './shared/counter.service';
+import {FormGroup, Validators, FormBuilder} from '@angular/forms';
+import {LocalStorage} from 'ngx-store';
 
 @Component({
   selector: 'app-counter',
@@ -12,9 +12,10 @@ import { LocalStorage } from 'ngx-store';
 export class CounterComponent {
 
   public packageForm: FormGroup;
-  @LocalStorage() public packageName: string = 'angular-switchable-grid';
-  @LocalStorage() public startDate: string = '2017-01-01';
-  @LocalStorage() public endDate: string = '2017-12-30';
+  @LocalStorage() public packageName = 'angular-switchable-grid';
+  @LocalStorage() public startDate = '2016-01-01';
+  @LocalStorage() public endDate = '2019-12-31';
+
   public showForm: boolean;
   public noDownloads: boolean;
   public lastDay: number;
@@ -36,6 +37,16 @@ export class CounterComponent {
     } else {
       this.showForm = true;
     }
+  }
+
+  public onSubmit(): void {
+    this.showForm = false;
+    this.getDownloads();
+  }
+
+  public onPackageClick(packageName): void {
+    const url = `https://www.npmjs.com/package/${packageName}`;
+    window.open(url, '_blank');
   }
 
   private getLastDayDownloadCounts(): void {
@@ -89,9 +100,5 @@ export class CounterComponent {
     });
   }
 
-  private onSubmit(): void {
-    this.showForm = false;
-    this.getDownloads();
-  }
 
 }
